@@ -1,1 +1,84 @@
+## Web browser renders requested data and display is proper formatted manner with the use of HTML
+It performs following task:
+- compile html
+- Interpret HTML
+- De-complie HTML
 
+Displaying and printing Web contents on the Internet or intranet
+
+
+## High Level Components of a browser
+-----------------------------------------------
+JS Interpreter 
+networking
+UI Backend to keep all UI generalised
+Data persistence to store user data nd requested data for a period of time 
+
+
+## Rendering engine and its use.
+- renders data from server or fetch data
+- the job of a rendering engine is to convert the applications internal model into a series of pixel brightness's 
+that can be displayed by a monitor (or other graphical device e.g a printer). 
+- Blink is the name of the rendering engine used by Chromium and particularly refers to the code living under src/third_party/blink.
+- A rendering engine is software that draws text and images on the screen.
+- The engine draws structured text from a document (often HTML), and formats it properly based on the given style declarations (often given in CSS). 
+
+## Parsers (HTML, CSS, etc)
+- Specifically for HTML, HTML parsing is the process of taking raw HTML code, reading it, and generating a DOM tree object structure from it.
+- parsing is basically to resolve (a sentence) into its component parts and describe their syntactic roles.
+- Parsing or syntactic analysis is the process of analysing a string of symbols, either in natural language or in computer languages, 
+- taking in HTML code and extracting relevant information like the title of the page, paragraphs in the page, headings in the page, links, bold text etc.
+There are in general 2 kinds of parsers:
+Top-down parsing- 
+Top-down parsing can be viewed as an attempt to find left-most derivations of an input-stream by searching 
+for parse trees using a top-down expansion of the given formal grammar rules. 
+Tokens are consumed from left to right. 
+Inclusive choice is used to accommodate ambiguity by expanding all alternative right-hand-sides of grammar rules.
+
+Bottom-up parsing -
+A parser can start with the input and attempt to rewrite it to the start symbol. 
+Intuitively, the parser attempts to locate the most basic elements, then the elements containing these, and so on. 
+LR parsers are examples of bottom-up parsers. 
+Another term used for this type of parser is Shift-Reduce parsing.
+Example:
+from HTMLParser import HTMLParser
+
+> Create a subclass and override the handler methods
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print "Encountered a start tag:", tag
+    def handle_endtag(self, tag):
+        print "Encountered an end tag :", tag
+    def handle_data(self, data):
+        print "Encountered some data  :", data
+
+> instantiate the parser and fed it some HTML
+parser = MyHTMLParser()
+parser.feed('<html><head><title>Test</title></head>'
+            '<body><h1>Parse me!</h1></body></html>')
+
+> Output:
+Encountered a start tag: html
+Encountered a start tag: head
+Encountered a start tag: title
+Encountered some data  : Test
+Encountered an end tag : title
+Encountered an end tag : head
+Encountered a start tag: body
+Encountered a start tag: h1
+Encountered some data  : Parse me!
+Encountered an end tag : h1
+Encountered an end tag : body
+Encountered an end tag : html
+
+
+## Script Processors
+
+
+## Tree construction
+
+
+## Order of script processing
+
+
+## Layout and Painting
