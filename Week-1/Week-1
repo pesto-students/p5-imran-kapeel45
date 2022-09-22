@@ -35,7 +35,7 @@ for parse trees using a top-down expansion of the given formal grammar rules.
 Tokens are consumed from left to right. 
 Inclusive choice is used to accommodate ambiguity by expanding all alternative right-hand-sides of grammar rules.
 
-Bottom-up parsing - 
+Bottom-up parsing -
 A parser can start with the input and attempt to rewrite it to the start symbol. 
 Intuitively, the parser attempts to locate the most basic elements, then the elements containing these, and so on. 
 LR parsers are examples of bottom-up parsers. 
